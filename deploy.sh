@@ -11,11 +11,11 @@ mv iWeb.war ROOT.war
 cd $PROJ_PATH/iWeb
 docker stop iWebObj
 docker rm iWebObj
-docker rmi iWeb
-docker build -t iWeb .
+docker rmi iweb
+docker build -t iweb .
 
 #启动docker image
-docker run --name iWebObj -d -p 8111:8080 iWeb
+docker run --name iWebObj -d -p 8111:8080 iweb
 
 
 
