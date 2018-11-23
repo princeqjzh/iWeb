@@ -23,7 +23,7 @@ killTomcat $TOMCAT_PATH
 ## 删除tomcat中原有的工程
 rm -f $TOMCAT_PATH/webapps/ROOT.war
 rm -f $TOMCAT_PATH/webapps/iWeb.war
-rm -rf $TOMCAT_PATH/webapps/ROOT.war
+rm -rf $TOMCAT_PATH/webapps/ROOT
 
 ## 复制/粘贴新iWeb.war包到tomcat
 cp $PROJ_PATH/iWeb/target/iWeb.war $TOMCAT_PATH/webapps/
