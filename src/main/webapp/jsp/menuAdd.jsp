@@ -106,7 +106,7 @@
 
 								<div class="clearfix form-actions">
 									<div class="col-md-offset-3 col-md-9">
-										<button class="btn btn-info" type="button" onclick="window.location.href='/showMenus'">
+										<button class="btn btn-info" type="submit">
 											<i class="icon-ok bigger-110"></i>
 											添加
 										</button>
