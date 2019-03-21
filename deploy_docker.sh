@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-cd $PROJ_PATH/iWeb
+cd $PROJ_PATH
 mvn clean install
 
 #准备ROOT.war包
-cd $PROJ_PATH/iWeb/target
+cd $PROJ_PATH/target
 mv iWeb.war ROOT.war
 
 #制作新的docker image - iweb
-cd $PROJ_PATH/iWeb
+cd $PROJ_PATH
 docker stop iWebObj
 docker rm iWebObj
 docker rmi iweb
