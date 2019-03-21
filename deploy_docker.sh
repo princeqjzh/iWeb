@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+. /etc/profile
+. ~/.bash_profile
+
 cd $PROJ_PATH
 mvn clean install
 
