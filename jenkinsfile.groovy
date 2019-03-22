@@ -1,10 +1,10 @@
-stage('源码下载') {
+stage('pull source code') {
     node('slave'){
         git([url: 'git@github.com:princeqjzh/iWeb.git', branch: 'master'])
     }
 }
 
-stage('maven编译打包') {
+stage('maven compile & package') {
     node('slave'){
         sh ". /etc/profile"
         sh ". ~/.bash_profile"
@@ -19,43 +19,43 @@ stage('maven编译打包') {
     }
 }
 
-stage('清理docker环境') {
+stage('clean docker environment') {
     node('slave'){
         try{
             sh 'docker stop iWebObj'
         }catch(exc){
-            echo 'iWebObj实例没有运行'
+            echo 'iWebObj container is not running!'
         }
 
         try{
             sh 'docker rm iWebObj'
         }catch(exc){
-            echo 'iWebObj实例不存在'
+            echo 'iWebObj container does not exist!'
         }
         try{
             sh 'docker rmi iweb'
         }catch(exc){
-            echo 'iweb 镜像不存在'
+            echo 'iweb image does not exist!'
         }
     }
 }
 
-stage('生成新的镜像') {
+stage('make new docker image') {
     node('slave'){
         try{
             sh 'docker build -t iweb .'
         }catch(exc){
-            echo '镜像iweb生成失败，请去运行时环境检查！'
+            echo 'Make iweb docker image failed, please check the environment!'
         }
     }
 }
 
-stage('启动docker镜像') {
+stage('start docker container') {
     node('slave'){
         try{
             sh 'docker run --name iWebObj -d -p 8111:8080 iweb'
         }catch(exc){
-            echo 'docker 实例启动失败，请去运行时环境检查！'
+            echo 'Start docker image failed, please check the environment!'
         }
     }
 }
