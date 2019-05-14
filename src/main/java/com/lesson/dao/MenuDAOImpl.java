@@ -47,6 +47,13 @@ public class MenuDAOImpl implements MenuDAO {
         menu5.setPrice(10.0f);
         menus.add(menu5);
 
+        Menu menu6 = new Menu();
+        menu6.setCid(2);
+        menu6.setMid(6);
+        menu6.setMname("红烧牛肉");
+        menu6.setPrice(41.0f);
+        menus.add(menu6);
+
         return menus;
     }
 
