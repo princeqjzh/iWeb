@@ -90,6 +90,12 @@ public class MenuDAOImpl implements MenuDAO {
         menu5.setMname("烤馕");
         menu5.setPrice(10.0f);
 
+        Menu menu6 = new Menu();
+        menu6.setCid(2);
+        menu6.setMid(6);
+        menu6.setMname("红烧牛肉");
+        menu6.setPrice(41.0f);
+
         if(cid != null && cid.equalsIgnoreCase("1")){
             menus.add(menu1);
             menus.add(menu2);
@@ -97,12 +103,14 @@ public class MenuDAOImpl implements MenuDAO {
         }else if(cid != null && cid.equalsIgnoreCase("2")){
             menus.add(menu4);
             menus.add(menu5);
+            menus.add(menu6);
         }else{
             menus.add(menu1);
             menus.add(menu2);
             menus.add(menu3);
             menus.add(menu4);
             menus.add(menu5);
+            menus.add(menu6);
         }
 
         return menus;
