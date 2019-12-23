@@ -71,4 +71,10 @@
             </li>
         </ul>
     </li>
+    <li <%if ("account-manage".equalsIgnoreCase(_currentMenu)) {%> class="active" <%}%>>
+        <a href="/jsp/accountManage.jsp" class="dropdown-toggle">
+            <i class="icon-coffee"></i>
+            <span class="menu-text"> 账号管理 </span>
+        </a>
+    </li>
 </ul><!-- /.nav-list -->
