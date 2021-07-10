@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Random;
 
 @Controller
 public class OrderEntryControllor {
@@ -48,6 +49,8 @@ public class OrderEntryControllor {
         logger.info("mid = " + mid);
         logger.info("cid = " + cid);
         logger.info("useCookie = " + useCookie);
+
+        int a = new Random().nextInt();
 
         //判断mid cid为空的情形
         if (mid == null || mid.equalsIgnoreCase("") || mid.equalsIgnoreCase("all")) {
