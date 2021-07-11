@@ -119,6 +119,26 @@
 					<contextReloadable>true</contextReloadable>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.5</version>
+				<configuration>
+					<effort>Low</effort>
+					<threshold>Medium</threshold>
+					<failOnError>true</failOnError>
+					<includeTests>true</includeTests>
+				</configuration>
+				<executions>
+					<execution>
+						<id>run-findbugs</id>
+						<phase>package</phase>
+						<goals>
+							<goal>findbugs</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
