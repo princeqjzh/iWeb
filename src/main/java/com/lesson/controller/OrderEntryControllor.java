@@ -124,7 +124,7 @@ public class OrderEntryControllor {
         logger.info("Start addMenu!");
         HttpSession session = request.getSession();
 
-        session.setAttribute("categoryManager", categoryManager);
+//        session.setAttribute("categoryManager", categoryManager);
         return "jsp/menuAdd.jsp";
     }
 
