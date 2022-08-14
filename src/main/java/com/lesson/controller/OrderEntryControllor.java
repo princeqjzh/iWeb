@@ -122,9 +122,9 @@ public class OrderEntryControllor {
     @RequestMapping(value = "/addMenu", method = RequestMethod.GET)
     public String addMenu(Model model, HttpServletRequest request) {
         logger.info("Start addMenu!");
-//        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 
-//        session.setAttribute("categoryManager", categoryManager);
+        session.setAttribute("categoryManager", categoryManager);
         return "jsp/menuAdd.jsp";
     }
 
