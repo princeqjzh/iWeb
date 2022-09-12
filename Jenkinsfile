@@ -104,7 +104,7 @@ pipeline{
     post {
         always {
             junit (
-                testResults: '${WORKSPACE}/iWeb/target/**/*.xml'
+                testResults: '${WORKSPACE}/iWeb/target/surefire-reports/*.xml'
                 , allowEmptyResults: true
             )
             emailext body: '$DEFAULT_CONTENT', recipientProviders: [[$class: 'RequesterRecipientProvider']], subject: '$DEFAULT_SUBJECT'
