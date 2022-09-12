@@ -12,9 +12,10 @@
 		<hibernate.version>4.3.0.Final</hibernate.version>
 		<osjdk.version>3.2.1</osjdk.version>
 		<lombok.version>1.16.6</lombok.version>
-		<allure.version>2.13.2</allure.version>
 		<junit.api.version>5.6.2</junit.api.version>
 		<junit.jupiter.version>5.6.2</junit.jupiter.version>
+		<aspectj.version>1.9.4</aspectj.version>
+		<skipTests>false</skipTests>
 	</properties>
 	
 	<dependencies>
@@ -113,13 +114,6 @@
 			<version>${junit.api.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- allure -->
-		<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-junit5</artifactId>
-			<version>${allure.version}</version>
-		</dependency>
 	</dependencies>
 	
 	<build>
@@ -135,8 +129,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.8.1</version>
 				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>utf8</encoding>
 				</configuration>
 			</plugin>
@@ -170,6 +166,21 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

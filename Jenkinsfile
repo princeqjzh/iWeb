@@ -35,7 +35,7 @@ pipeline{
             steps{
                 sh '''
                     cd ${WORKSPACE}/iWeb
-                    mvn clean install
+                    mvn clean install -Dmaven.test.skip=true
                     mv target/iWeb.war target/ROOT.war
                 '''
             }
@@ -89,6 +89,25 @@ pipeline{
                     }
                 }
             }
+        }
+
+        stage("健康接口测试"){
+            steps{
+                sh '''
+                    cd ${WORKSPACE}/iWeb
+                    mvn test
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            junit (
+                testResults: '${WORKSPACE}/iWeb/target/**/*.xml'
+                , allowEmptyResults: true
+            )
+            emailext body: '$DEFAULT_CONTENT', recipientProviders: [[$class: 'RequesterRecipientProvider']], subject: '$DEFAULT_SUBJECT'
         }
     }
 }
