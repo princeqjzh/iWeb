@@ -33,9 +33,11 @@ pipeline{
 
         stage("编译打包"){
             steps{
-                sh "cd ${WORKSPACE}/iWeb"
-                sh "mvn clean install"
-                sh "mv target/iWeb.war target/ROOT.war"
+                sh '''
+                    cd ${WORKSPACE}/iWeb
+                    mvn clean install
+                    mv target/iWeb.war target/ROOT.war
+                '''
             }
         }
 
@@ -66,7 +68,10 @@ pipeline{
             steps{
                 script{
                     try{
-                        sh 'docker build -t ${docker_image} .'
+                        sh '''
+                            cd ${WORKSPACE}/iWeb
+                            docker build -t ${docker_image} .
+                        '''
                     }catch(exc){
                         echo 'Make ${docker_image} docker image failed, please check the environment!'
                     }
