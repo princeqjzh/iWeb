@@ -12,6 +12,9 @@
 		<hibernate.version>4.3.0.Final</hibernate.version>
 		<osjdk.version>3.2.1</osjdk.version>
 		<lombok.version>1.16.6</lombok.version>
+		<allure.version>2.13.2</allure.version>
+		<junit.api.version>5.6.2</junit.api.version>
+		<junit.jupiter.version>5.6.2</junit.jupiter.version>
 	</properties>
 	
 	<dependencies>
@@ -88,6 +91,35 @@
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
         </dependency>
+
+		<!-- allure -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- junit -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.api.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- allure -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-junit5</artifactId>
+			<version>${allure.version}</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
