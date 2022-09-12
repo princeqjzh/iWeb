@@ -6,9 +6,6 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.net.ConnectException;
-import java.util.Calendar;
-
 public class HealthCheckTest {
     String baseURL = "http://localhost:8111";
     String ep = "/healthCheck";
