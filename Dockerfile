@@ -1,5 +1,5 @@
 #从tomcat的镜像开始创建
-FROM tomcat:latest
+FROM tomcat:7
 
 #声明作者
 MAINTAINER tester "tester@hogwarts.com"
