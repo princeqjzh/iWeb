@@ -4,7 +4,7 @@
 . ~/.bash_profile
 
 cd $PROJ_PATH
-mvn clean install
+mvn clean install -Dmaven.test.skip=true
 
 #准备ROOT.war包
 cd $PROJ_PATH/target
