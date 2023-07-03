@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class HealthCheckTest {
-    String baseURL = "http://localhost:8111";
+    String baseURL = "http://localhost:8071";
     String ep = "/healthCheck";
 
     @Test
